@@ -3,8 +3,7 @@ class Posts < ActiveRecord::Migration[7.0]
     create_table :posts do |t|
       t.references :author, foreign_key: { to_table: :user }
       t.string :title
-      t.string :text
-      t.string :content
+      t.text :text
       t.integer :comments_counter
       t.integer :likes_counter
       t.timestamps
