@@ -1,12 +1,12 @@
-class User < ActiveRecord::Migration[7.0]
+class CreateUsers < ActiveRecord::Migration[7.0]
   def change
-    create_table :user do |t|
+    create_table :users do |t|
       t.string :name
       t.string :photo
       t.text :bio
       t.integer :posts_counter
       t.timestamps
     end
-    add_index :user, :name, unique: true
+    add_index :users, :name, unique: true
   end
 end
