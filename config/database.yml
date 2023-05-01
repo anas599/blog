@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: postgres
+  password: walkman
+  pool: 5
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+
+development:
+  <<: *default
+  database: Blog_development
+
+test:
+  <<: *default
+  database: Blog_test
+
+production:
+  <<: *default
+  database: Blog_production
+  username: Blog
+  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>
