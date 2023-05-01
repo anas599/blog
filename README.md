@@ -18,7 +18,7 @@
 - [📝 License](#license)
 
 # 📖 Blog <a name="about-project"></a>
-
+Blog Build is a Ruby on Rails web app with PostgreSQL database that enables users to publish blog posts, like and comment on other posts, and manage their profiles.Users can also create accounts, manage their profile information, and view a personalized feed of posts they have liked or commented on. 
 **Blog** 
 ## 🛠 Built With <a name="built-with"></a>
 PostgresSQL
@@ -59,7 +59,7 @@ Ruby installed
 Clone this repository to your desired folder:
   cd Blog
 
-    git clone git@github.com:anas599/Blog.git
+    git clone git@github.com:anas599/blog.git
   
 
 ### Install
