@@ -3,7 +3,6 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-
   def self.posts_counter(user)
     where(author: user).count
   end
