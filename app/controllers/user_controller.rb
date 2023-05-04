@@ -3,9 +3,8 @@ class UserController < ApplicationController
     @user = user_data.first
   end
 
-  def posts
-    @posts = user_posts
+  #   def posts_show; end
+  def index
+    @user = user_data
   end
-
-  def posts_show; end
 end

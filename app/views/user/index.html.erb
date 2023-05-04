@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div>
+    <% @user.each do |user| %>
+      <ul>
+        <div  class="user-panel">
+        <li class="profile-img"><h4><%=user[:pic]%></h4></li>
+        <div class="user-name">
+        <li><h3><%=user[:name]%></h3></li>
+        <p>Number of posts: <%=user[:posts_num]%></p>
+        </div>
+        <hr>
+        </ul>
+    <% end %>
+    </div>
+</div>
