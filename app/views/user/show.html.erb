@@ -1,0 +1,24 @@
+<div class="container">
+<h1>User page</h1>
+  <div>
+    <% @user %>
+      <ul>
+        <div  class="user-panel">
+        <li class="profile-img"><h4><%=@user[:pic]%></h4></li>
+        <div class="user-name">
+        <li><h3><%=@user[:name]%></h3></li>
+        <p>Number of posts: <%=@user[:posts_num]%></p>
+        </div>
+        <hr>
+        </ul>
+    </div>
+    <div class="bio">
+        <p><%=@user[:bio]%></p>
+    </div>
+    </div>
+</div>
+<% @posts%>
+<%= render partial: 'posts', locals: {posts: @posts} %>
+
+
+
