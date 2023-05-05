@@ -1,13 +1,14 @@
 <div class="container">
   <% @user.each do |user| %>
     <ul>
-      <div class="user-panel" id=<%=user[:id]%>>
+      <div class="user-panel shadow p-3 mb-5 bg-white rounded
+" id=<%=user[:id]%>>
         <li class="profile-img">
           <h4>image<%=user[:pic]%></h4>
         </li>
         <div class="user-name">
           <li>
-            <h3>
+            <h3 class='shadow p-3  bg-white rounded'>
               <a href="/users/<%=user[:id]%>">
                 <%=user[:name]%>
               </a>

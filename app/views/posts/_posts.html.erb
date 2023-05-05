@@ -1,7 +1,7 @@
 <section class="posts">
   <% user = User.find(params[:id]) %>
   <% user_posts = user.recent_posts %>
-  <ul class="post-body">
+  <ul class="post-body shadow p-3 mb-5 bg-white rounded">
     <% user_posts.each do |post| %>
       <li>
         <h3>

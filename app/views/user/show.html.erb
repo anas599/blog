@@ -1,29 +1,27 @@
 <div class="container">
-<h1>User page</h1>
+  <h1>User page</h1>
   <div>
     <% @user %>
-<ul>
-  <div class="user-panel">
-    <li class="profile-img"><h4>image <%= @user[:pic] %></h4></li>
-    <div class="user-name">
-      <li>
-      <h3>
-      <a href="/users/<%=@user[:id]%>"><%= @user.name %></a>
-      </h3>
-      </li>
-
-      <p>Number of posts: <%= @user.posts_counter %></p>
-    </div>
+    <ul>
+      <div class="user-panel shadow p-3  bg-white rounded
+">
+        <li class="profile-img">
+          <h4>image <%= @user[:pic] %></h4>
+        </li>
+        <div class="user-name">
+          <li>
+            <h3>
+              <a href="/users/<%=@user[:id]%>"><%= @user.name %></a>
+            </h3>
+          </li>
+          <p>Number of posts: <%= @user.posts_counter %></p>
+        </div>
+      </div>
+    </ul>
   </div>
-</ul>    
+  <div class="shadow p-3  bg-white rounded">
+    <p><%=@user[:bio]%></p>
+  </div>
 </div>
-    <div class="bio">
-        <p><%=@user[:bio]%></p>
-    </div>
-    </div>
 </div>
-
 <%= render partial: 'posts/posts', locals: {posts: @posts} %>
-
-
-
