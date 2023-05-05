@@ -1,8 +1,37 @@
 <section class="posts">
-  <% @posts.each do |post| %>
-    <ul class="post-body">
-      <h3><%= post[:title] %></h3>
-      <p><%= post[:content] %></p>
-    </ul>
-  <% end %>
+  <% user = User.find(params[:id]) %>
+  <% user_posts = Post.where(author_id: user.id) %>
+  <div class="user-panel" id=<%=user[:id]%>>
+    <li class="profile-img">
+      <h4>image<%=user[:pic]%></h4>
+    </li>
+    <div class="user-name">
+      <li>
+        <h3>
+          <a href="/users/<%=user[:id]%>">
+            <%=user[:name]%>
+          </a>
+        </h3>
+      </li>
+      <p>Number of posts: <%=user[:posts_counter]%></p>
+    </div>
+    <hr>
+  </div>
+  <ul class="post-body">
+    <% user_posts.each do |post| %>
+      <li>
+        <h3><%= post.title %></h3>
+        <p><%= post.text %></p>
+        <ul class="comments">
+          <% post.comments.each do |comment| %>
+            <li>
+              <p><%= comment.author.name %>: <%= comment.text %></p>
+              <p></p>
+            </li>
+          <% end %>
+        </ul>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
 </section>

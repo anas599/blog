@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   def show
-    @user = user_data.first
+    @user = User.find(params[:id])
   end
 
   def index

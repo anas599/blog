@@ -1,16 +1,22 @@
-
 <div class="container">
-  <div>
-    <% @user.each do |user| %>
-      <ul>
-        <div  class="user-panel">
-        <li class="profile-img"><h4><%=user[:pic]%></h4></li>
+  <% @user.each do |user| %>
+    <ul>
+      <div class="user-panel" id=<%=user[:id]%>>
+        <li class="profile-img">
+          <h4>image<%=user[:pic]%></h4>
+        </li>
         <div class="user-name">
-        <li><h3><%=user[:name]%></h3></li>
-        <p>Number of posts: <%=user[:posts_num]%></p>
+          <li>
+            <h3>
+              <a href="/users/<%=user[:id]%>">
+                <%=user[:name]%>
+              </a>
+            </h3>
+          </li>
+          <p>Number of posts: <%=user[:posts_counter]%></p>
         </div>
         <hr>
-        </ul>
-    <% end %>
-    </div>
+      </div>
+    </ul>
+  <% end %>
 </div>

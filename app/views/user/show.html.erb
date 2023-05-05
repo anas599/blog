@@ -2,23 +2,28 @@
 <h1>User page</h1>
   <div>
     <% @user %>
-      <ul>
-        <div  class="user-panel">
-        <li class="profile-img"><h4><%=@user[:pic]%></h4></li>
-        <div class="user-name">
-        <li><h3><%=@user[:name]%></h3></li>
-        <p>Number of posts: <%=@user[:posts_num]%></p>
-        </div>
-        <hr>
-        </ul>
+<ul>
+  <div class="user-panel">
+    <li class="profile-img"><h4>image <%= @user[:pic] %></h4></li>
+    <div class="user-name">
+      <li>
+      <h3>
+      <a href="/users/<%=@user[:id]%>"><%= @user.name %></a>
+      </h3>
+      </li>
+
+      <p>Number of posts: <%= @user.posts_counter %></p>
     </div>
+  </div>
+</ul>    
+</div>
     <div class="bio">
         <p><%=@user[:bio]%></p>
     </div>
     </div>
 </div>
-<% @posts%>
-<%= render partial: 'posts', locals: {posts: @posts} %>
+
+<%= render partial: 'posts/posts', locals: {posts: @posts} %>
 
 
 
