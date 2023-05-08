@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'User controller' do
-  it 'should return a user' do
-    get '/users/1'
-    expect(response).to have_http_status(:success)
-    expect(response.status).to eq(200)
-    expect(response.body).to include('name')
-    expect(response.body).to include('id')
-    expect(response.body).to include('Number of posts:')
-    expect(response.body).to include('image')
+describe 'Testing the user controller' do
+  it 'renders a successful response' do
+    user = User.create!(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                        posts_counter: 0)
+    get user_url(user)
+    expect(response).to be_successful
+    expect(response).to have_http_status(200)
+    expect(response.body).to include('Tom')
+    expect(response.body).to include('Teacher from Mexico.')
+    expect(response).to render_template('user/show', 'shared/_navbar')
   end
 end
