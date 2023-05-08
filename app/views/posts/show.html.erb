@@ -1,0 +1,23 @@
+<% path = request.path.split("/") %>
+<% user_id = path[-3] %>
+<% user = User.find(user_id) %>
+<% user_posts = Post.where(author_id: user.id) %>
+<% single_post = Post.find(params[:id]) %>
+<div class="container">
+  <p><%= single_post.title %>
+    Post by:  <a href="/users/<%= user.id %>">
+      <%= user.name %>
+    </a>
+  </p>
+  <p>Post: 
+    <%= single_post.text %>
+  </p>
+  <p>Comments:</p>
+  <% user_posts.each do |post| %>
+    <% post.comments.each do |comment| %>
+      <p><%= comment.author.name %>:- <%= comment.text %>
+      </p>
+      <p></p>
+    <% end %>
+  <% end %>
+</div>
