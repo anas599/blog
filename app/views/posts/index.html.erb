@@ -1,4 +1,4 @@
-<section class="posts">
+<section class="posts container">
   <% user = User.find(params[:id]) %>
   <% user_posts = Post.where(author_id: user.id) %>
   <div class="user-panel" id=<%=user[:id]%>>

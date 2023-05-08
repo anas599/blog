@@ -1,12 +1,11 @@
-
 .user-panel {
-  /* border: solid 1px green; */
   display: flex;
   justify-content: center;
 }
 
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 li {
@@ -26,7 +25,6 @@ li {
 }
 
 .user-name {
-  /* border: solid 1px black; */
   margin: 0.5rem;
   padding: 2rem;
   display: flex;

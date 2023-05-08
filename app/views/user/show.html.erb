@@ -3,8 +3,7 @@
   <div>
     <% @user %>
     <ul>
-      <div class="user-panel shadow p-3  bg-white rounded
-">
+      <div class="user-panel shadow p-3  bg-white rounded">
         <li class="profile-img">
           <h4>image <%= @user[:pic] %></h4>
         </li>
@@ -23,5 +22,6 @@
     <p><%=@user[:bio]%></p>
   </div>
 </div>
+<div class="container">
+  <%= render partial: 'posts/posts', locals: {posts: @posts} %>
 </div>
-<%= render partial: 'posts/posts', locals: {posts: @posts} %>
