@@ -5,7 +5,7 @@
 <% single_post = Post.find(params[:id]) %>
 <div class="container">
   <p><%= single_post.title %>
-    Post by:  <a href="/users/<%= user.id %>">
+    Post by:  <a href="/user/<%= user.id %>">
       <%= user.name %>
     </a>
   </p>

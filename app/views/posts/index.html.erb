@@ -1,5 +1,7 @@
 <section class="posts container">
-  <% user = User.find(params[:id]) %>
+  <% path = request.path.split("/") %>
+  <% user_id = path[-2] %>
+  <% user = User.find(user_id) %>
   <% user_posts = Post.where(author_id: user.id) %>
   <div class="user-panel" id=<%=user[:id]%>>
     <li class="profile-img">
@@ -8,7 +10,7 @@
     <div class="user-name">
       <li>
         <h3>
-          <a href="/users/<%=user[:id]%>">
+          <a href="/user/<%=user[:id]%>">
             <%=user[:name]%>
           </a>
         </h3>
@@ -21,7 +23,7 @@
     <% user_posts.each do |post| %>
       <li>
         <h3>
-          <a href="/users/<%= user.id %>/posts/<%= post.id %>"><%= post.title %></a>
+          <a href="/user/<%= user.id %>/posts/<%= post.id %>"><%= post.title %></a>
         </h3>
         <p><%= post.text %></p>
         <ul class="comments">
