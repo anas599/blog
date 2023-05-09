@@ -27,11 +27,8 @@
         </h3>
         <p><%= post.text %></p>
         <ul class="comments">
-          <% post.comments.each do |comment| %>
-            <li>
-              <p><%= comment.author.name %>: <%= comment.text %></p>
-              <p></p>
-            </li>
+          <% post.recent_5_comments.each do |comment| %>
+            <p><%= comment.author.name %>: <%= comment.text %></p>
           <% end %>
         </ul>
         <hr>
