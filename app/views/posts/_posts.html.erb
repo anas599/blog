@@ -1,19 +1,24 @@
 <section class="posts">
   <% user = User.find(params[:id]) %>
   <% user_posts = user.recent_posts %>
-  <ul class="post-body shadow p-3 mb-5 bg-white rounded">
+  <ul >
     <% user_posts.each do |post| %>
       <li>
-        <h3>
-          <a href="/user/<%=@user[:id]%>/posts/<%= post.id %>"> <%= post.title %>
-          </a>
-        </h3>
-        <p><%= post.text %></p>
+        <div class="d-flex border border-dark  justify-content-between shadow p-3 mb-5 mt-5 bg-white rounded">
+          <div>
+            <h3><a href="/user/<%=@user[:id]%>/posts/<%= post.id %>"> <%= post.title %></a></h3>
+            <p><%= post.text %></p>
+          </div>
+          <div class="mt-auto align-self-end">
+            <p>Comments:<%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+          </div>
+        </div>
       </li>
-      <hr>
     <% end %>
   </ul>
-  <a href="/user/<%=@user[:id]%>/posts">
-    <button type="button" class="btn btn-primary" >See all posts</button>
-  </a>
+  <div class="text-center mb-5">
+    <a href="/user/<%=@user[:id]%>/posts">
+      <button type="button" class="btn btn-primary" >See all posts</button>
+    </a>
+  </div>
 </section>

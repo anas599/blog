@@ -1,38 +1,44 @@
+<% path = request.path.split("/") %>
+<% user_id = path[-2] %>
+<% user = User.find(user_id) %>
+<% user_posts = Post.where(author_id: user.id) %>
 <section class="posts container">
-  <% path = request.path.split("/") %>
-  <% user_id = path[-2] %>
-  <% user = User.find(user_id) %>
-  <% user_posts = Post.where(author_id: user.id) %>
-  <div class="user-panel" id=<%=user[:id]%>>
+  <div class="user-panel shadow p-3 mb-5 bg-white rounded" id=<%= user[:id] %>>
     <li class="profile-img">
-      <h4>image<%=user[:pic]%></h4>
+      <h4>image<%= user[:pic] %></h4>
     </li>
     <div class="user-name">
       <li>
         <h3>
-          <a href="/user/<%=user[:id]%>">
-            <%=user[:name]%>
+          <a href="/user/<%= user[:id] %>">
+            <%= user[:name] %>
           </a>
         </h3>
       </li>
-      <p>Number of posts: <%=user[:posts_counter]%></p>
+    </div>
+    <div class="p">
+      <p>Number of posts: <%= user[:posts_counter] %></p>
     </div>
     <hr>
   </div>
-  <ul class="post-body">
-    <% user_posts.each do |post| %>
+  <% user_posts.each do |post| %>
+    <ul class="d-flex flex-column border border-dark justify-content-between shadow p-3 mb-0 mt-5 bg-white rounded">
       <li>
         <h3>
           <a href="/user/<%= user.id %>/posts/<%= post.id %>"><%= post.title %></a>
         </h3>
         <p><%= post.text %></p>
-        <ul class="comments">
-          <% post.recent_5_comments.each do |comment| %>
-            <p><%= comment.author.name %>: <%= comment.text %></p>
-          <% end %>
-        </ul>
-        <hr>
       </li>
-    <% end %>
-  </ul>
+      <li class="mt-auto align-self-end">
+        <p>Comments:x<%= post.comments_counter %>, Likes:x <%= post.likes_counter %></p>
+      </li>
+    </ul>
+    <ul class="comments d-flex flex-column border border-dark justify-content-between shadow p-3  bg-white rounded">
+      <% post.recent_5_comments.each do |comment| %>
+        <li>
+          <p><%= comment.author.name %>: <%= comment.text %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </section>

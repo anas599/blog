@@ -1,6 +1,6 @@
 .user-panel {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 ul {
@@ -45,4 +45,13 @@ li {
   border: solid 1px black;
   margin: 0.5rem;
   padding: 2rem;
+}
+
+.p {
+  display: flex;
+}
+
+.p p {
+  display: flex;
+  align-items: flex-end;
 }
