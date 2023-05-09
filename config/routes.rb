@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
   root 'user#index'
-  get 'users/:id', to: 'user#show'
-  get 'users/:id/posts', to: 'posts#index'
-  get 'users/', to: 'user#index'
-  get 'users/:id/posts/:id', to: 'posts#show'
-
+     resources :user, only: [:index, :show] do
+    resources :posts, only: [:index, :show]
+  end
   get "new_post", to: "posts#new"
   post "new_post", to: "posts#create"
   get 'success', to: 'posts#success'
