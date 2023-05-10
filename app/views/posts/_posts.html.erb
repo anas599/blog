@@ -1,6 +1,7 @@
 <section class="posts">
   <% user = User.find(params[:id]) %>
   <% user_posts = user.recent_posts %>
+  <% like = Like.create(author: user)%>
   <ul >
     <% user_posts.each do |post| %>
       <li>
