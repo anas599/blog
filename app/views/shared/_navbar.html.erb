@@ -14,6 +14,14 @@
       <li class="nav-item">
         <a class="nav-link" href="/new_comment">Add Comment</a>
       </li>
+      <li>
+      </li>
+      <% if user_signed_in? %>
+        <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= button_to "Sign In", new_user_session_path %></li>
+        <li><%= button_to "Sign Up", new_user_registration_path %></li>
+      <% end %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
