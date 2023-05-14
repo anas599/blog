@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     @current_user = current_user
   end
 
+  def after_sign_in_path_for(resource)
+    flash[:notice] = "Welcome back, #{resource.name}!" # Modify the message as desired
+    super
+  end
+
   def user_data
     @user_data ||= User.all
   end
