@@ -34,7 +34,7 @@
       </li>
     </ul>
     <ul class="comments d-flex flex-column border border-dark justify-content-between shadow p-3  bg-white rounded">
-      <% post.recent_5_comments.each do |comment| %>
+      <% post.recent_5_comments.includes([:author]).each do |comment| %>
         <li>
           <p><%= comment.author.name %>: <%= comment.text %></p>
         </li>
