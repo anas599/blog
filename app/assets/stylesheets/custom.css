@@ -55,3 +55,8 @@ li {
   display: flex;
   align-items: flex-end;
 }
+.profile-img{
+  width: 6rem;
+  max-width: 10rem;
+  padding: 1rem;
+}
