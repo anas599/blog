@@ -81,9 +81,19 @@ RSpec.describe 'Post index/show', type: :system do
       expect(current_path).to eq(user_posts_path(user.id))
       sleep 1
       click_link('Tom2', exact_text: true)
-      expect(page).to have_content('Comments')
+      expect(page).to have_content('Posts')
       expect(page).to have_content('Likes')
+      expect(page).to have_content('Number of posts: 2')
+      expect(page).to have_content('image')
       sleep 1
+    end
+
+    it 'number of likes and comments' do
+      expect(current_path).to eq(user_posts_path(user.id))
+      sleep 1
+      click_link('Tom2', exact_text: true)
+      expect(page).to have_content('Comments:2')
+      expect(page).to have_content('Likes: 0')
     end
   end
 end
