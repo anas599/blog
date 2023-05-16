@@ -22,6 +22,7 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mb-3" %>
     </div>
     <%= f.hidden_field :posts_counter, value: 0 %>
+    <%= f.hidden_field :photo, value: 'https://www.svgrepo.com/show/512729/profile-round-1342.svg' %>
     <div class="actions">
       <%= f.submit "Sign up", class: "btn btn-primary mb-3" %>
     </div>
