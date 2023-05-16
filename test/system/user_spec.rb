@@ -79,6 +79,7 @@ RSpec.describe 'User index/show', type: :system do
     end
 
     it 'should contain 3 latest posts' do
+      click_link('See all posts', exact_text: true)
       expect(page).to have_content('Cap1')
       expect(page).to have_content('Cap2')
       expect(page).to have_content('Cap3')
