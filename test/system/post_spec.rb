@@ -29,5 +29,16 @@ RSpec.describe 'Post index/show', type: :system do
       expect(page).to have_content('This is capybara2')
       sleep 1
     end
+
+    it ' comments and likes on post' do
+      post.save
+      expect(current_path).to eq(user_posts_path(user.id))
+      sleep 1
+      click_link('Tom2', exact_text: true)
+      expect(page).to have_content('Comments')
+      expect(page).to have_content('Likes')
+      sleep 1 
+    end
   end
 end
+
