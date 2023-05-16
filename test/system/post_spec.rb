@@ -5,7 +5,7 @@ RSpec.describe 'Post index/show', type: :system do
     let(:user) do
       User.create!(
         name: 'Tom2',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        photo: 'https://www.svgrepo.com/show/512729/profile-round-1342.svg',
         bio: 'Teacher from Mexico.',
         posts_counter: 0,
         email: 'test@mail.com',
@@ -44,7 +44,7 @@ RSpec.describe 'Post index/show', type: :system do
     let(:user) do
       User.create!(
         name: 'Tom2',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        photo: 'https://www.svgrepo.com/show/512729/profile-round-1342.svg',
         bio: 'Teacher from Mexico.',
         posts_counter: 0,
         email: 'test@mail.com',
@@ -84,7 +84,7 @@ RSpec.describe 'Post index/show', type: :system do
       expect(page).to have_content('Posts')
       expect(page).to have_content('Likes')
       expect(page).to have_content('Number of posts: 2')
-      expect(page).to have_content('image')
+      expect(page).to have_css('img[src="https://www.svgrepo.com/show/512729/profile-round-1342.svg"')
       sleep 1
     end
 
