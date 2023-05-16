@@ -48,7 +48,15 @@ RSpec.describe 'User index/show', type: :system do
         password: '123456'
       )
     end
-
+    let(:post1) do
+      Post.create!(author: user, title: 'cap4', text: 'This is capybara2', comments_counter: 0, likes_counter: 0)
+    end
+    let(:post2) do
+      Post.create!(author: user, title: 'cap3', text: 'This is capybar22', comments_counter: 0, likes_counter: 0)
+    end
+    let(:post3) do
+      Post.create!(author: user, title: 'cap1', text: 'This is capara2', comments_counter: 0, likes_counter: 0)
+    end
     before(:each) do
       visit user_path(user.id)
       sleep 5
@@ -63,8 +71,19 @@ RSpec.describe 'User index/show', type: :system do
       expect(page).to have_content('Number of posts')
     end
 
+    it 'See three posts' do
+      click_link('See all posts', exact_text: true)
+      expect(page).to have_content('cap4')
+      expect(page).to have_content('cap3')
+      expect(page).to have_content('cap1')
+    end
+
     it 'should contain the "image" text' do
       expect(page).to have_content('image')
+    end
+
+    it 'should contain the "bio" text' do
+      expect(page).to have_content('Teacher from Mexico')
     end
 
     it 'should navigate to the user posts page' do
