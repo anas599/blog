@@ -37,8 +37,7 @@ RSpec.describe 'Post index/show', type: :system do
       click_link('Tom2', exact_text: true)
       expect(page).to have_content('Comments')
       expect(page).to have_content('Likes')
-      sleep 1 
+      sleep 1
     end
   end
 end
-
