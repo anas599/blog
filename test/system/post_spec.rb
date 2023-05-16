@@ -2,51 +2,32 @@ require 'rails_helper'
 
 RSpec.describe 'Post index/show', type: :system do
   describe 'post index page' do
+    let(:user) do
+      User.create!(
+        name: 'Tom2',
+        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        bio: 'Teacher from Mexico.',
+        posts_counter: 0,
+        email: 'test@mail.com',
+        password: '123456'
+      )
+    end
+    let(:post) do
+      Post.create!(author: user, title: 'cap4', text: 'This is capybara2', comments_counter: 0, likes_counter: 0)
+    end
     before(:each) do
-      @author = User.create(name: 'Koami NOGBEDJI', photo: 'https://linktomyphoto.com/koami_profil', bio: 'my self')
-      @post = Post.create(title: 'post title', text: 'this is a text for the post', author_id: @author.id)
-      #@comment = Comment.create(text: 'this is first a comment', user: @author, post_id: @post.id)
-      @comment = Comment.create(post: @post, author: @author, text: 'this is first a comment') 
-      Like.create(author_id: @author.id, post_id: @post.id)
-      #visit user_posts_path(user_id: @author.id)
-      visit user_posts_path(user_id: @author.id)
+      visit user_posts_path(user_id: user.id)
     end
 
-    it 'it should contain the user profil' do
-      expect(page).to have_selector('img[src="https://linktomyphoto.com/koami_profil"]')
+    it 'should contain the user name' do
+      post.save
+      expect(current_path).to eq(user_posts_path(user.id))
+      expect(page).to have_content('Tom2')
+      sleep 1
+      click_link('Tom2', exact_text: true)
+      expect(page).to have_content('cap4')
+      expect(page).to have_content('This is capybara2')
+      sleep 1
     end
-#     it 'it should contain the user name' do
-#       expect(page).to have_content('Koami NOGBEDJI')
-#     end
-#     it 'it should contain the number of the user posts' do
-#       expect(page).to have_content('Number of posts:
-# 1')
-#     end
-#     it 'it should contain the post title' do
-#       expect(page).to have_content('post title')
-#     end
-#     it 'it should contain the post body' do
-#       expect(page).to have_content 'this is a text for the post'
-#     end
-
-#     it 'it should contain the first comment on a post' do
-#       expect(page).to have_content 'this is first a comment'
-#     end
-
-#     it 'it should contain the number of comments a post has.' do
-#       expect(page).to have_content('Comments: 1')
-#     end
-
-#     it 'it should contain the number of likes a post has.' do
-#       expect(page).to have_content('Likes: 1')
-#     end
-
-#     it 'shows a section for pagination if there are more posts than fit on the view' do
-#       expect(page).to have_content('Pagination')
-#     end
-#     it 'when user clicks on a post, it redirects to that posts show page' do
-#       click_link 'post title'
-#       expect(page).to have_current_path user_post_path(user_id: @author.id, id: @post.id)
-#     end
   end
 end
