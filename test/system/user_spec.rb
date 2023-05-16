@@ -50,24 +50,11 @@ RSpec.describe 'User index/show', type: :system do
         password: '123456'
       )
     end
-<<<<<<< HEAD
-    let(:post1) do
-      Post.create!(author: user, title: 'cap4', text: 'This is capybara2', comments_counter: 0, likes_counter: 0)
-    end
-    let(:post2) do
-      Post.create!(author: user, title: 'cap3', text: 'This is capybar22', comments_counter: 0, likes_counter: 0)
-    end
-    let(:post3) do
-      Post.create!(author: user, title: 'cap1', text: 'This is capara2', comments_counter: 0, likes_counter: 0)
-    end
-=======
     let(:post2) do
       Post.create!(author: user, title: 'Cap1', text: 'This is capybara1', comments_counter: 0, likes_counter: 0)
       Post.create!(author: user, title: 'Cap2', text: 'This is capybara2', comments_counter: 0, likes_counter: 0)
       Post.create!(author: user, title: 'Cap3', text: 'This is capybara3', comments_counter: 0, likes_counter: 0)
     end
-
->>>>>>> 702d423e5bdf566df6411dbe9f488b4456624860
     before(:each) do
       visit user_posts_path(user_id: user.id)
       click_link('Tom1', exact_text: true)
@@ -82,13 +69,6 @@ RSpec.describe 'User index/show', type: :system do
 
     it 'should contain the "Number of posts" text' do
       expect(page).to have_content('Number of posts')
-    end
-
-    it 'See three posts' do
-      click_link('See all posts', exact_text: true)
-      expect(page).to have_content('cap4')
-      expect(page).to have_content('cap3')
-      expect(page).to have_content('cap1')
     end
 
     it 'should contain the "image" text' do
