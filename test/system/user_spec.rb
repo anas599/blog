@@ -5,7 +5,7 @@ RSpec.describe 'User index/show', type: :system do
     let(:user) do
       User.create!(
         name: 'Tom1',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        photo: 'https://www.svgrepo.com/show/512729/profile-round-1342.svg',
         bio: 'Teacher from Mexico.',
         posts_counter: 0,
         email: 'test@mail.com',
@@ -29,8 +29,9 @@ RSpec.describe 'User index/show', type: :system do
       expect(page).to have_content('Number of posts')
     end
 
-    it 'should contain the "image" text' do
-      expect(page).to have_content('image')
+    it 'should contain the user photo' do
+      expect(page).to have_css('img[src="https://www.svgrepo.com/show/512729/profile-round-1342.svg"')
+      sleep 1
     end
 
     it 'should navigate to the user show page' do
@@ -43,7 +44,7 @@ RSpec.describe 'User index/show', type: :system do
     let(:user) do
       User.create!(
         name: 'Tom1',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        photo: 'https://www.svgrepo.com/show/512729/profile-round-1342.svg',
         bio: 'Teacher from Mexico.',
         posts_counter: 0,
         email: 'test@mail.com',
@@ -71,8 +72,8 @@ RSpec.describe 'User index/show', type: :system do
       expect(page).to have_content('Number of posts')
     end
 
-    it 'should contain the "image" text' do
-      expect(page).to have_content('image')
+    it 'should contain the user image ' do
+      expect(page).to have_css('img[src="https://www.svgrepo.com/show/512729/profile-round-1342.svg"')
     end
     it 'should contain user bio' do
       expect(page).to have_content('Teacher from Mexico.')
