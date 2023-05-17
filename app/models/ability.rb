@@ -1,10 +1,19 @@
 class Ability
   include CanCan::Ability
+def initialize(user)
+  if user.nil?
+    can :read, Post
+elsif user.is?(:admin)
+    can :manage, Post
+  else
+    can [:read, :create], Post
+    can [:update, :destroy], Post, :author_id => user.id
+  end
+end
+  # def initialize(user)
+  #   user ||= User.new
 
-  def initialize(user)
-    user ||= User.new
-
-    can :destroy, Post, author_id: user.id
+  #   can :destroy, Post, author_id: user.id
 
     # else
     #     can :read, Post
@@ -33,5 +42,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
-  end
+  # end
 end
