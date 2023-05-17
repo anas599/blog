@@ -24,9 +24,9 @@ class PostsController < ApplicationController
     authorize! :destroy, @post
 
     if @post.destroy
-      redirect_to user_path(@user), notice: 'Post deleted successfully.'
+      redirect_to user_posts_path(@post.author_id), notice: 'Post deleted successfully.'
     else
-      redirect_to user_path(@user), alert: 'Failed to delete the post.'
+      redirect_to user_posts_path(user.id), alert: 'Failed to delete the post.'
     end
   end
 
