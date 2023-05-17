@@ -32,6 +32,11 @@
       <li class="mt-auto align-self-end">
         <p>Comments:<%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
       </li>
+      <li>
+        <% if can? :destroy, post %>
+          <%= link_to "Delete Post", user_post_path(user, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <% end %>
+      </li>
     </ul>
     <ul class="comments d-flex flex-column border border-dark justify-content-between shadow p-3  bg-white rounded">
       <% post.recent_5_comments.includes([:author]).each do |comment| %>

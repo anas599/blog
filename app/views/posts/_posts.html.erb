@@ -1,8 +1,7 @@
 <section class="posts">
   <% user = User.find(params[:id]) %>
   <% user_posts = user.recent_posts %>
-  <% like = Like.create(author: user)%>
-  <ul >
+  <ul>
     <% user_posts.each do |post| %>
       <li>
         <div class="d-flex border border-dark  justify-content-between shadow p-3 mb-5 mt-5 bg-white rounded">
@@ -11,7 +10,10 @@
             <p><%= post.text %></p>
           </div>
           <div class="mt-auto align-self-end">
-            <p>Comments:<%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+            <p>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+            <% if can? :destroy, post %>
+              <%= link_to "Delete Post", user_post_path(user, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            <% end %>
           </div>
         </div>
       </li>
@@ -19,7 +21,7 @@
   </ul>
   <div class="text-center mb-5">
     <a href="/user/<%=@user[:id]%>/posts">
-      <button type="button" class="btn btn-primary" >See all posts</button>
+      <button type="button" class="btn btn-primary">See all posts</button>
     </a>
   </div>
 </section>
