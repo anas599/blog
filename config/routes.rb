@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:new, :create, :destroy]
   get "new_comment", to: "comment#new"
+  get 'destroy_comment', to: 'comment#destroy'
   post "new_comment", to: "comment#create"
   get "comment_success", to: "comment#comment_success"
   
