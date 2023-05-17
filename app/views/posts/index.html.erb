@@ -42,6 +42,9 @@
       <% post.recent_5_comments.includes([:author]).each do |comment| %>
         <li>
           <p><%= comment.author.name %>: <%= comment.text %></p>
+          <% if can? :destroy, comment %>
+              <%= link_to "Delete Comment", destroy_comment_path( id:comment.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            <% end %>
         </li>
       <% end %>
     </ul>
