@@ -1,13 +1,14 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  username: postgres
+  password: walkman
   pool: 5
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
 
 development:
   <<: *default
-  database: Blog_development
+  database: Blog_development4
 
 test:
   <<: *default
