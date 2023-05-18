@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   get 'success', to: 'posts#success'
   get 'destroy_post', to: 'posts#destroy'
 
-  # get "new_comment", to: "comment#new"
-  # get 'destroy_comment', to: 'comment#destroy'
-  # post "new_comment", to: "comment#create"
+  get "new_comment", to: "comment#new"
+  get 'destroy_comment', to: 'comment#destroy'
+  post "new_comment", to: "comment#create"
   # get "comment_success", to: "comment#comment_success"
   
 end
