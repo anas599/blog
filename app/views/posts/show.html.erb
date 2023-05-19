@@ -31,7 +31,9 @@
           <%= link_to "Delete Comment", user_post_comment_path(user_id: user.id, post_id: post.id, id:comment.id),  data: {turbo_method: :delete}, class: "btn btn-danger" %>
         <% end %>
       <% end %>
-      <%= link_to "Add Comment", new_user_post_comment_path(user_id: user.id, post_id: post.id), class: "button"%>
+      <% if post.id ==single_post.id%>
+        <%= link_to "Add Comment", new_user_post_comment_path(user_id: user.id, post_id: post.id), class: "button"%>
+      <%end%>
     <% end %>
   </div>
 </section>
