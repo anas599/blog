@@ -6,7 +6,6 @@ class Api::CommentsController < ApplicationController
     render json: comments
   end
 
-  
   def create
     @comment = Comment.new(comment_params)
     @comment.author = @auth_user
