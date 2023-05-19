@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container animate__animated animate__fadeIn">
   <h2 class="mb-5">Add a Comment to the post</h2>
   <%= form_with(model: @comment, url: user_post_comments_path, method:"post", local: true, class: "form") do |form| %>
     <div class="form-group field">
