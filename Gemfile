@@ -29,7 +29,7 @@ gem 'cssbundling-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
-
+gem 'jwt'
 gem 'cancancan'
 gem 'devise'
 gem 'rubocop', '>= 1.0', '< 2.0'
