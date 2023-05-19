@@ -2,7 +2,7 @@
 <% user_id = path[-2] %>
 <% user = User.find(user_id) %>
 <% user_posts = Post.where(author_id: user.id) %>
-<section class="posts container">
+<section class="posts container animate__animated animate__fadeIn">
   <div class="user-panel shadow p-3 mb-5 bg-white rounded" id=<%= user[:id] %>>
     <li class="profile-img">
       <img class='profile-img' src="<%= user[:photo] %>">
