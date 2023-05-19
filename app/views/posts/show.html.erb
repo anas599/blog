@@ -3,7 +3,7 @@
 <% user = User.find(user_id) %>
 <% user_posts = Post.where(author_id: user.id) %>
 <% single_post = Post.find(params[:id]) %>
-<section class="container">
+<section class="container animate__animated animate__fadeIn">
   <div class="d-flex border border-dark justify-content-between shadow p-3  mt-5 bg-white rounded">
     <div>
       <p>
