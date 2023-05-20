@@ -14,12 +14,11 @@
   <body>
     <div class="container">
       <% flash.each do |key, value| %>
-        <div class="alert alert-info <%= key %> alert-dismissible fade show" role="alert">
+        <div class="alert <%= bootstrap_alert_class(key) %> alert-dismissible fade show" role="alert">
           <%= value %>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-      <% end %>
-      <%= yield %>
+      <% end %>      <%= yield %>
     </div>
   </body>
 </html>
