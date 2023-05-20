@@ -1,5 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
   <a class="navbar-brand m-2 px-2" href="#">Blog</a>
+  <%if current_user !=nil%>
+    <%= link_to user_posts_path(current_user.id), class: "navbar-brand m-2 px-2" do %>
+      Welcome: <%= current_user.name %>
+    <%end%>
+  <%end%>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

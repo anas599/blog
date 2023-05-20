@@ -3,7 +3,7 @@
 <% user = User.find(user_id) %>
 <% user_posts = Post.where(author_id: user.id) %>
 <section class="posts container animate__animated animate__fadeIn">
-  <div class="user-panel shadow p-3 mb-5 bg-white rounded" id=<%= user[:id] %>>
+  <div class="user-panel shadow p-3 mb-5 user-tab-bg rounded" id=<%= user[:id] %>>
     <li class="profile-img">
       <img class='profile-img' src="<%= user[:photo] %>">
     </li>
@@ -22,7 +22,7 @@
     <hr>
   </div>
   <% user_posts.each do |post| %>
-    <ul class="d-flex flex-column border border-dark justify-content-between shadow p-3 mb-0 mt-5 bg-white rounded">
+    <ul class="d-flex flex-column border border-dark justify-content-between shadow p-3 mb-0 mt-5 user-tab-bg rounded">
       <li>
         <h3>
           <a href="/user/<%= user.id %>/posts/<%= post.id %>"><%= post.title %></a>
@@ -38,8 +38,8 @@
         </li>
       <% end %>
     </ul>
-    <ul class="comments d-flex flex-column border border-dark justify-content-between shadow p-3  bg-white rounded">
-      <% post.recent_5_comments.includes([:author]).each do |comment| %>
+    <ul class="comments d-flex flex-column border border-dark justify-content-between shadow p-3  user-tab-bg rounded">
+      <% post.recent_5_comments.each do |comment| %>
         <li>
           <p><%= comment.author.name %>: <%= comment.text %></p>
           <% if can? :destroy, comment %>

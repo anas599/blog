@@ -3,7 +3,7 @@
   <div>
     <% @user %>
     <ul>
-      <div class="user-panel shadow p-3 mb-5 bg-white rounded animate__animated animate__fadeIn">
+      <div class="user-panel shadow p-3 mb-5 user-tab-bg rounded animate__animated animate__fadeIn">
         <li class="profile-img">
           <img class="profile-img" src="<%= @user.photo %>">
         </li>
@@ -20,7 +20,7 @@
       </div>
     </ul>
   </div>
-  <div class="shadow p-3 bg-white rounded my-5 animate__animated animate__fadeIn">
+  <div class="shadow p-3 user-tab-bg rounded my-5 animate__animated animate__fadeIn">
     <p>Bio:</p>
     <p><%=@user[:bio]%></p>
   </div>

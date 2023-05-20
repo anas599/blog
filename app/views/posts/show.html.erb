@@ -4,7 +4,7 @@
 <% user_posts = Post.where(author_id: user.id) %>
 <% single_post = Post.find(params[:id]) %>
 <section class="container animate__animated animate__fadeIn">
-  <div class="d-flex border border-dark justify-content-between shadow p-3  mt-5 bg-white rounded">
+  <div class="d-flex border border-dark justify-content-between shadow p-3  mt-5 user-tab-bg rounded">
     <div>
       <p>
         <%= single_post.title %>
@@ -22,7 +22,7 @@
       <p>Comments:<%= single_post[:comments_counter] %>, Likes: <%= single_post[:likes_counter] %></p>
     </div>
   </div>
-  <div class="border border-dark shadow p-3  mb-5  bg-white rounded">
+  <div class="border border-dark shadow p-3  mb-5  user-tab-bg rounded">
     <% user_posts.each do |post| %>
       <% post.comments.each do |comment| %>
         <p><%= comment.author.name %>:- <%= comment.text %>
@@ -30,9 +30,11 @@
         <% if can? :destroy, comment %>
           <%= link_to "Delete Comment", user_post_comment_path(user_id: user.id, post_id: post.id, id:comment.id),  data: {turbo_method: :delete}, class: "btn btn-danger" %>
         <% end %>
+        <hr>
       <% end %>
       <% if post.id ==single_post.id%>
-        <%= link_to "Add Comment", new_user_post_comment_path(user_id: user.id, post_id: post.id), class: "button"%>
+        <%= link_to "Add Comment", new_user_post_comment_path(user_id: user.id, post_id: post.id), class: "btn btn-outline-info"%>
+        <hr>
       <%end%>
     <% end %>
   </div>
