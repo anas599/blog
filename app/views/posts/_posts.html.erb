@@ -5,7 +5,7 @@
   <ul>
     <% user_posts.each do |post| %>
       <li>
-        <div class="d-flex border border-dark  justify-content-between shadow p-3 mb-5 mt-5 user-tab-bg rounded">
+        <div class="d-flex border border-dark  justify-content-between shadow p-3 mb-3 mt-3 user-tab-bg rounded">
           <div>
             <h3><a href="/user/<%=@user[:id]%>/posts/<%= post.id %>"> <%= post.title %></a></h3>
             <p><%= post.text %></p>
@@ -13,7 +13,7 @@
           <div class="mt-auto align-self-end">
             <p>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
             <% if can? :destroy, post %>
-              <%= link_to "Delete Post", destroy_post_path( id:post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              <%= link_to "Delete Post", destroy_post_path( id:post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "bi bi-trash3 btn btn-outline-danger " %>
             <% end %>
           </div>
         </div>

@@ -28,7 +28,7 @@
         <p><%= comment.author.name %>:- <%= comment.text %>
         </p>
         <% if can? :destroy, comment %>
-          <%= link_to "Delete Comment", user_post_comment_path(user_id: user.id, post_id: post.id, id:comment.id),  data: {turbo_method: :delete}, class: "btn btn-danger" %>
+          <%= link_to "Delete Comment", user_post_comment_path(user_id: user.id, post_id: post.id, id:comment.id),  data: {turbo_method: :delete}, class: "bi bi-trash3 btn btn-outline-warning btn-sm" %>
         <% end %>
         <hr>
       <% end %>

@@ -1,7 +1,7 @@
 <div class="container container animate__animated animate__fadeIn">
   <% @user.each do |user| %>
     <ul>
-      <div class="user-panel shadow p-3 mb-5 user-tab-bg rounded" id=<%=user[:id]%>>
+      <div class="user-panel shadow p-3 mb-3 user-tab-bg rounded" id=<%=user[:id]%>>
         <li class="profile-img">
           <img class='profile-img' src="<%= user[:photo] %>">
         </li>

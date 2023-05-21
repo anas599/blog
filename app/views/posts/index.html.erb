@@ -3,7 +3,7 @@
 <% user = User.find(user_id) %>
 <% user_posts = Post.where(author_id: user.id) %>
 <section class="posts container animate__animated animate__fadeIn">
-  <div class="user-panel shadow p-3 mb-5 user-tab-bg rounded" id=<%= user[:id] %>>
+  <div class="user-panel shadow p-3 mb-3 user-tab-bg rounded" id=<%= user[:id] %>>
     <li class="profile-img">
       <img class='profile-img' src="<%= user[:photo] %>">
     </li>
@@ -34,16 +34,16 @@
       </li>
       <li>
         <% if can? :destroy, post %>
-          <%= link_to "Delete Post", destroy_post_path( id:post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <%= link_to "Delete Post", destroy_post_path( id:post.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger bg-gradient" %>
         </li>
       <% end %>
     </ul>
     <ul class="comments d-flex flex-column border border-dark justify-content-between shadow p-3  user-tab-bg rounded">
       <% post.recent_5_comments.each do |comment| %>
-        <li>
-          <p><%= comment.author.name %>: <%= comment.text %></p>
+        <li class="d-flex flex-row justify-content-between  border-rounded-right my-2 mx-2 p-2 ">
+          <p class="h6 "><%= comment.author.name %>: <%= comment.text %></p>
           <% if can? :destroy, comment %>
-            <%= link_to "Delete Comment", destroy_comment_path( id:comment.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            <%= link_to "Delete Comment", destroy_comment_path( id:comment.id), method: :delete, data: { confirm: "Are you sure?" }, class: "bi bi-trash3 btn btn-outline-warning btn-sm" %>
           <% end %>
         </li>
       <% end %>

@@ -54,7 +54,6 @@ li {
   align-items: center;
   text-align: center;
   max-width: 10rem;
-  padding: 0.5rem;
 }
 
 .user-name {
@@ -87,4 +86,27 @@ li {
 .p p {
   display: flex;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 600px) {
+  .p p {
+    text-align: center;
+  }
+
+  .user-name {
+    padding: 0;
+  }
+}
+
+.border-rounded-right {
+  border: 1.2px solid transparent;
+  border-image: linear-gradient(90deg, rgb(234, 234, 234), #f000) 1;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: none;
+}
+
+.icon-blogy {
+  width: 2rem;
+  margin-right: 1rem;
 }

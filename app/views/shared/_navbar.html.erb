@@ -1,8 +1,11 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-  <a class="navbar-brand m-2 px-2" href="#">Blog</a>
+  <a class="navbar-brand m-2 px-2" href="/">
+    <%= image_tag("blog.png", class: "icon-blogy") %>
+    Blogy App
+  </a>
   <%if current_user !=nil%>
     <%= link_to user_posts_path(current_user.id), class: "navbar-brand m-2 px-2" do %>
-      Welcome: <%= current_user.name %>
+      User: <%= current_user.name %>
     <%end%>
   <%end%>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
