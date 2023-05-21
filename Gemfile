@@ -30,7 +30,6 @@ gem 'cssbundling-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'cancancan'
 gem 'devise'
-gem 'font-awesome-sass', '~> 6.4.0'
 gem 'jbuilder'
 gem 'jwt'
 gem 'rubocop', '>= 1.0', '< 2.0'
